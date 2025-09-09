@@ -11,8 +11,6 @@ import java.util.Optional;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import org.springframework.cache.annotation.EnableCaching;
-
 public class Streams {
 	public static void main(String[] args) {
 //    	Primitive Array
@@ -193,5 +191,6 @@ class Employee {
 
 
 }
+
 
 
