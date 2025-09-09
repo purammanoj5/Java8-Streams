@@ -1,20 +1,6 @@
 package com.practice.java.javapractice.javapractice;
 
 import java.util.ArrayList;
-//import org.mybatis.spring.annotation.MapperScan;
-//import org.springframework.boot.SpringApplication;
-//import org.springframework.boot.autoconfigure.SpringBootApplication;
-//
-//@SpringBootApplication
-//@MapperScan("com.practice.java.javapractice.mapper")
-//public class Application {
-//
-//	public static void main(String[] args)  {
-//		SpringApplication.run(Application.class, args);
-//	}
-//
-//}
-//
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -205,5 +191,6 @@ class Employee {
 		this.empId = n++;
 		this.empName = empName;
 	}
+
 
 }
