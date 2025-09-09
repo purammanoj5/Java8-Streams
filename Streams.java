@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 import org.springframework.cache.annotation.EnableCaching;
 
 @EnableCaching
-public class Application extends RuntimeException {
+public class Streams extends RuntimeException {
 	public static void main(String[] args) {
 //    	Primitive Array
 		int[] primitiveArray = { 1, 2, 3, 4 };
@@ -194,3 +194,4 @@ class Employee {
 
 
 }
+
