@@ -1,6 +1,20 @@
 package com.practice.java.javapractice.javapractice;
 
 import java.util.ArrayList;
+//import org.mybatis.spring.annotation.MapperScan;
+//import org.springframework.boot.SpringApplication;
+//import org.springframework.boot.autoconfigure.SpringBootApplication;
+//
+//@SpringBootApplication
+//@MapperScan("com.practice.java.javapractice.mapper")
+//public class Application {
+//
+//	public static void main(String[] args)  {
+//		SpringApplication.run(Application.class, args);
+//	}
+//
+//}
+//
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -8,11 +22,13 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.stream.Collectors;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class Streams {
+public class Java8Streams {
 	public static void main(String[] args) {
+
 //    	Primitive Array
 		int[] primitiveArray = { 1, 2, 3, 4 };
 //      Object Array
@@ -38,6 +54,7 @@ public class Streams {
 		integerList.stream().forEach(System.out::println); // list to stream
 
 		List<Integer> values = Arrays.asList(11, 12, 13, 14, 14);
+		List<Integer> listValues = new ArrayList<>(List.of(11,22,33));
 		
 		//intermediate operations
 		values.stream().filter(n -> n % 2 == 0).forEach(System.out::println);
@@ -134,8 +151,8 @@ public class Streams {
 	                empList.stream()
 	                .collect(Collectors.groupingBy(Employee::getEmpName));
 		 
-		 Map<Boolean, List<Employee>> employeesById =
-	                empList.stream()
+		 Map<Boolean, List<Employee>> employeesById = 
+				 	empList.stream()
 	                .collect(Collectors.partitioningBy(emp->emp.getEmpId()>2));
 		 
 		 employeesByDepartment.forEach((empName, employeeList) -> {
@@ -147,6 +164,27 @@ public class Streams {
 		 employeesById.get(true).forEach(System.out::println);
 		 System.out.println("EmpId <= 2");
 		 employeesById.get(false).forEach(System.out::println);
+		 
+		 
+		 
+		String input = "puram manoj";
+		
+		Stream<Character> st=input.chars()
+        .mapToObj(c -> (char) c)
+        .filter(Character::isLetter);
+		
+		st.forEach(System.out::println);
+
+        Map<Character, Long> frequencyMap = input.chars()
+            .mapToObj(c -> (char) c)
+            .filter(Character::isLetter) // Optional: skip spaces or non-alphabetic chars
+            .collect(Collectors.groupingBy(
+                Function.identity(), // returns every character but as we are fetching in map, map removes duplicates
+                Collectors.counting() // counts the occurances of the character
+            ));
+
+        System.out.println(frequencyMap);
+
 	}
 
 }
@@ -174,7 +212,6 @@ class Employee {
 		this.empName = empName;
 	}
 
-	
 	@Override
 	public String toString() {
 		return "Employee [empId=" + empId + ", empName=" + empName + "]";
@@ -189,8 +226,4 @@ class Employee {
 		this.empName = empName;
 	}
 
-
 }
-
-
-
