@@ -212,6 +212,4 @@ class Employee {
 		this.empName = empName;
 	}
 
-	//manoj
-
 }
